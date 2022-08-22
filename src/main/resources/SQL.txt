@@ -1,0 +1,39 @@
+CREATE DATABASE db_test;
+CREATE TABLE persons(
+person_id INT,
+first_name VARCHAR(40) NOT NULL,
+last_name VARCHAR(40) NOT NULL,
+age INT NOT NULL,
+PRIMARY KEY (person_id)
+);
+INSERT INTO persons (person_id,first_name,last_name,age)
+VALUES
+(1,'Max','Anderson',18),
+(2,'Tim','Peterson',20),
+(3,'Alex','Mercer',24),
+(4,'Peter','Pen',15);
+CREATE TABLE usertest(
+id_user INT,
+user_login VARCHAR(20) NOT NULL UNIQUE,
+user_password VARCHAR(100) NOT NULL,
+PRIMARY KEY(id_user),
+FOREIGN KEY (id_user) REFERENCES persons(person_id)
+);
+INSERT INTO usertest (id_user,user_login,user_password)
+VALUES
+(1,'Max18','3431max18'),
+(2,'Tim2212','tim2002'),
+(3,'alex_mercer','dced2hg'),
+(4,'PeterPen','2001rer');
+CREATE TABLE products1(
+products_id INT UNIQUE,
+proucts_name VARCHAR(20) NOT NULL,
+price INT NOT NULL,
+PRIMARY KEY(products_id)
+);
+INSERT INTO products1(products_id,proucts_name,price)
+VALUES
+(1,'Apple','25'),
+(2,'Orange','30'),
+(3,'Meat','100'),
+(4,'Potato','10');
